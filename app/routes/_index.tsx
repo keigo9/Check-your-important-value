@@ -15,9 +15,9 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   const [step, setStep] = useState(1);
   const [values, setValues] = useState({});
-  const [topValues, setTopValues] = useState([]);
-  const [selectedValues, setSelectedValues] = useState([]);
-  const [rankedValues, setRankedValues] = useState([]);
+  const [topValues, setTopValues] = useState([""]);
+  const [selectedValues, setSelectedValues] = useState([""]);
+  const [rankedValues, setRankedValues] = useState([""]);
 
   const handleNextStep = () => setStep(step + 1);
   const handlePrevStep = () => setStep(step - 1);

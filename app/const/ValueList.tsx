@@ -1,4 +1,4 @@
-export const valueList = {
+export const valueList: { [key: string]: string } = {
   受容: "ありのままの自分を受け入れてもらう",
   正確: "自分の意見や信念正しく伝える",
   達成: "なにか重要なことを達成する",

@@ -1,8 +1,10 @@
+import { Dispatch, SetStateAction } from "react";
+
 type Props = {
   values: Record<string, number>;
   selectedValues: string[];
-  setSelectedValues: (values: string[]) => void;
-  setTopValues: (values: string[]) => void;
+  setSelectedValues: Dispatch<SetStateAction<string[]>>;
+  setTopValues: Dispatch<SetStateAction<string[]>>;
   onNext: () => void;
   onPrev: () => void;
 };

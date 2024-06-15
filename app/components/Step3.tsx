@@ -1,9 +1,16 @@
-import { useState } from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Dispatch, SetStateAction, useState } from "react";
+import {
+  DragDropContext,
+  Droppable,
+  Draggable,
+  DropResult,
+  DraggableProvided,
+  DroppableProvided,
+} from "react-beautiful-dnd";
 
 type Props = {
   topValues: string[];
-  setRankedValues: (values: string[]) => void;
+  setRankedValues: Dispatch<SetStateAction<string[]>>;
   onNext: () => void;
   onPrev: () => void;
 };
@@ -11,7 +18,7 @@ type Props = {
 function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
   const [rankedValues, setLocalRankedValues] = useState(topValues);
 
-  const handleDragEnd = (result: any) => {
+  const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
     const items = Array.from(rankedValues);
@@ -31,11 +38,11 @@ function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
       <h2>ステップ3: 10個に絞った価値観に1～10位に並び替える</h2>
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="values">
-          {(provided: any) => (
+          {(provided: DroppableProvided) => (
             <ol {...provided.droppableProps} ref={provided.innerRef}>
               {rankedValues.map((value, index) => (
                 <Draggable key={value} draggableId={value} index={index}>
-                  {(provided: any) => (
+                  {(provided: DraggableProvided) => (
                     <li
                       ref={provided.innerRef}
                       {...provided.draggableProps}
