@@ -3,6 +3,7 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "homepage": "https://keigo9.github.io/Check-your-important-value",
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
