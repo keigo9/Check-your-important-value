@@ -43,14 +43,14 @@ function Step2({
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-4 mt-6">
+      <h2 className="text-md font-semibold mb-4 mt-6">
         ステップ2: 3点をつけた価値観を10個以内に絞る
       </h2>
       <ul>
         {threePointValues.map(([key]) => (
           <li key={key} className="flex items-center">
-            <label className="relative flex items-center p-1 rounded-full cursor-pointer text-md">
-              <div className="relative h-5 mr-3">
+            <label className="relative flex items-center p-1 rounded-full cursor-pointer text-sm">
+              <div className="relative h-5 mr-2">
                 <input
                   type="checkbox"
                   checked={selectedValues.includes(key)}
@@ -68,7 +68,8 @@ function Step2({
                   </svg>
                 </span>
               </div>
-              {key}: <span className="text-sm">{valueList[key]}</span>
+              <span className="text-nowrap mr-1">{key}:</span>
+              <span className="text-xs">{valueList[key]}</span>
             </label>
           </li>
         ))}

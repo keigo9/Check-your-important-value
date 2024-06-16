@@ -15,10 +15,10 @@ function Step1({ values, setValues, onNext }: Props) {
 
   return (
     <div>
-      <h1 className="text-xl font-bold mb-4">
+      <h1 className="text-lg font-bold mb-4">
         ニューメキシコ大学が公表した80の価値観リストを使って、自分に大切な価値観を明確にしてみましょう
       </h1>
-      <h2 className="text-lg font-semibold mb-4">
+      <h2 className="text-md font-semibold mb-4">
         ステップ1: 価値観に1～3点をつける
       </h2>
       <ul className="space-y-3">

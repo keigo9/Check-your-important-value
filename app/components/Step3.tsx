@@ -38,7 +38,7 @@ function Step3({ topValues, setTopValues, onNext, onPrev }: Props) {
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-4 mt-6">
+      <h2 className="text-md font-semibold mb-4 mt-6">
         ステップ3: 10個に絞った価値観に1～10位に並び替える
       </h2>
       <DragDropContext onDragEnd={handleDragEnd}>
