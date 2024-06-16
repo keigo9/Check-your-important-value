@@ -7,6 +7,7 @@ import {
   DraggableProvided,
   DroppableProvided,
 } from "react-beautiful-dnd";
+import { valueList } from "~/const/ValueList";
 
 type Props = {
   topValues: string[];
@@ -53,7 +54,10 @@ function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
                       {...provided.dragHandleProps}
                       className="max-w-sm rounded overflow-hidden shadow-lg mt-1"
                     >
-                      <div className="px-6 py-4 bg-gray-200">{value}</div>
+                      <div className="px-6 py-4 bg-gray-200 text-sm">
+                        {value}:{" "}
+                        <span className="text-xs">{valueList[value]}</span>
+                      </div>
                     </li>
                   )}
                 </Draggable>

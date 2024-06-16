@@ -1,4 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
+import { valueList } from "~/const/ValueList";
+import { ScrollToTop } from "~/utils/Scroll";
 
 type Props = {
   values: Record<string, number>;
@@ -17,6 +19,7 @@ function Step2({
   onNext,
   onPrev,
 }: Props) {
+  ScrollToTop();
   const threePointValues = Object.entries(values).filter(
     ([, value]) => value === 3
   );
@@ -24,7 +27,7 @@ function Step2({
   const handleSelect = (key: string) => {
     if (selectedValues.includes(key)) {
       setSelectedValues(selectedValues.filter((v) => v !== key));
-    } else if (selectedValues.length < 10) {
+    } else if (selectedValues.length < 11) {
       setSelectedValues([...selectedValues, key]);
     }
   };
@@ -43,15 +46,10 @@ function Step2({
       <h2 className="text-lg font-semibold mb-4 mt-6">
         ステップ2: 3点をつけた価値観を10個以内に絞る
       </h2>
-      <p>
-        {selectedValues.length > 1
-          ? `選択した数: ${selectedValues.length - 1}`
-          : ""}
-      </p>
       <ul>
         {threePointValues.map(([key]) => (
           <li key={key} className="flex items-center">
-            <label className="relative flex items-center p-1 rounded-full cursor-pointer">
+            <label className="relative flex items-center p-1 rounded-full cursor-pointer text-md">
               <div className="relative h-5 mr-3">
                 <input
                   type="checkbox"
@@ -70,11 +68,16 @@ function Step2({
                   </svg>
                 </span>
               </div>
-              {key}
+              {key}: <span className="text-sm">{valueList[key]}</span>
             </label>
           </li>
         ))}
       </ul>
+      <p className="mt-3 text-right">
+        {selectedValues.length > 1
+          ? `選択した数: ${selectedValues.length - 1}`
+          : ""}
+      </p>
       <div className="flex justify-end gap-3">
         <button
           className="mt-6 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
