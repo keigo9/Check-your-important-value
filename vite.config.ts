@@ -5,6 +5,7 @@ import { copyFileSync } from "node:fs";
 import { join } from "node:path";
 
 export default defineConfig({
+  base: "/Check-your-important-value/",
   plugins: [
     remix({
       ssr: false,
