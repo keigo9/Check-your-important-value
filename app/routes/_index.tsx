@@ -30,11 +30,8 @@ export default function Index() {
   };
 
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-lg">
-        ニューメキシコ大学が公表した80の価値観リストを使って、自分に大切な価値観を明確にしてみましょう
-      </h1>
-      <div className="list-disc mt-4 pl-6 space-y-2">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-1">
+      <div className="bg-white shadow-md rounded-lg max-w-xl w-full min-h-screen p-3">
         {step === 1 && (
           <Step1
             values={values}
