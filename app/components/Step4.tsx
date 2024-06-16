@@ -13,7 +13,7 @@ function Step4({ rankedValues, onRestart, onPrev }: Props) {
       <h2 className="text-lg font-semibold mb-4 mt-6">最終結果</h2>
       <ol>
         {rankedValues.map((value, index) => (
-          <li key={value}>
+          <li key={value} className="mb-2">
             <strong>{index + 1}位:</strong> {value} - {valueList[value]}
           </li>
         ))}
