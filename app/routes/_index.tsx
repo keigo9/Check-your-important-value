@@ -17,7 +17,6 @@ export default function Index() {
   const [values, setValues] = useState({});
   const [topValues, setTopValues] = useState<string[]>([]);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
-  const [rankedValues, setRankedValues] = useState<string[]>([]);
 
   const handleNextStep = () => setStep(step + 1);
   const handlePrevStep = () => setStep(step - 1);
@@ -26,7 +25,6 @@ export default function Index() {
     setValues({});
     setTopValues([]);
     setSelectedValues([]);
-    setRankedValues([]);
   };
 
   return (
@@ -52,15 +50,14 @@ export default function Index() {
         {step === 3 && (
           <Step3
             topValues={topValues}
-            rankedValues={rankedValues}
-            setRankedValues={setRankedValues}
+            setTopValues={setTopValues}
             onNext={handleNextStep}
             onPrev={handlePrevStep}
           />
         )}
         {step === 4 && (
           <Step4
-            rankedValues={rankedValues}
+            rankedValues={topValues}
             onRestart={handleRestart}
             onPrev={handlePrevStep}
           />

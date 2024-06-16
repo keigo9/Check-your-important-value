@@ -12,23 +12,14 @@ import { ScrollToTop } from "~/utils/Scroll";
 
 type Props = {
   topValues: string[];
-  rankedValues: string[];
-  setRankedValues: Dispatch<SetStateAction<string[]>>;
+  setTopValues: Dispatch<SetStateAction<string[]>>;
   onNext: () => void;
   onPrev: () => void;
 };
 
-function Step3({
-  topValues,
-  rankedValues,
-  setRankedValues,
-  onNext,
-  onPrev,
-}: Props) {
+function Step3({ topValues, setTopValues, onNext, onPrev }: Props) {
   ScrollToTop();
-  const [localRankedValues, setLocalRankedValues] = useState(
-    rankedValues.length > 0 ? rankedValues : topValues
-  );
+  const [localRankedValues, setLocalRankedValues] = useState(topValues);
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
@@ -41,7 +32,7 @@ function Step3({
   };
 
   const handleSubmit = () => {
-    setRankedValues(localRankedValues);
+    setTopValues(localRankedValues);
     onNext();
   };
 
