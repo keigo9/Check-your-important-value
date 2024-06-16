@@ -8,6 +8,7 @@ import {
   DroppableProvided,
 } from "react-beautiful-dnd";
 import { valueList } from "~/const/ValueList";
+import { ScrollToTop } from "~/utils/Scroll";
 
 type Props = {
   topValues: string[];
@@ -17,6 +18,7 @@ type Props = {
 };
 
 function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
+  ScrollToTop();
   const [rankedValues, setLocalRankedValues] = useState(
     topValues.filter((v) => v !== "")
   );

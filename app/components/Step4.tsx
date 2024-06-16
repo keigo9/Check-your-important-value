@@ -1,4 +1,5 @@
 import { valueList } from "~/const/ValueList";
+import { ScrollToTop } from "~/utils/Scroll";
 
 type Props = {
   rankedValues: string[];
@@ -6,6 +7,7 @@ type Props = {
   onPrev: () => void;
 };
 function Step4({ rankedValues, onRestart, onPrev }: Props) {
+  ScrollToTop();
   return (
     <div>
       <h2 className="text-lg font-semibold mb-4 mt-6">最終結果</h2>

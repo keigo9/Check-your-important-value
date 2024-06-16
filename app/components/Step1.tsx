@@ -1,4 +1,5 @@
 import { valueList } from "~/const/ValueList";
+import { ScrollToTop } from "~/utils/Scroll";
 
 type Props = {
   values: Record<string, number>;
@@ -7,6 +8,7 @@ type Props = {
 };
 
 function Step1({ values, setValues, onNext }: Props) {
+  ScrollToTop();
   const handleChange = (key: string, value: number) => {
     setValues({ ...values, [key]: value });
   };
