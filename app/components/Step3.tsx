@@ -12,21 +12,28 @@ import { ScrollToTop } from "~/utils/Scroll";
 
 type Props = {
   topValues: string[];
+  rankedValues: string[];
   setRankedValues: Dispatch<SetStateAction<string[]>>;
   onNext: () => void;
   onPrev: () => void;
 };
 
-function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
+function Step3({
+  topValues,
+  rankedValues,
+  setRankedValues,
+  onNext,
+  onPrev,
+}: Props) {
   ScrollToTop();
-  const [rankedValues, setLocalRankedValues] = useState(
-    topValues.filter((v) => v !== "")
+  const [localRankedValues, setLocalRankedValues] = useState(
+    rankedValues.length > 0 ? rankedValues : topValues
   );
 
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
 
-    const items = Array.from(rankedValues);
+    const items = Array.from(localRankedValues);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
@@ -34,7 +41,7 @@ function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
   };
 
   const handleSubmit = () => {
-    setRankedValues(rankedValues);
+    setRankedValues(localRankedValues);
     onNext();
   };
 
@@ -47,7 +54,7 @@ function Step3({ topValues, setRankedValues, onNext, onPrev }: Props) {
         <Droppable droppableId="values">
           {(provided: DroppableProvided) => (
             <ol {...provided.droppableProps} ref={provided.innerRef}>
-              {rankedValues.map((value, index) => (
+              {localRankedValues.map((value, index) => (
                 <Draggable key={value} draggableId={value} index={index}>
                   {(provided: DraggableProvided) => (
                     <li

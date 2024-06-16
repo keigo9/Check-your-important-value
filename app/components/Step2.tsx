@@ -27,13 +27,13 @@ function Step2({
   const handleSelect = (key: string) => {
     if (selectedValues.includes(key)) {
       setSelectedValues(selectedValues.filter((v) => v !== key));
-    } else if (selectedValues.length < 11) {
+    } else if (selectedValues.length < 10) {
       setSelectedValues([...selectedValues, key]);
     }
   };
 
   const handleSubmit = () => {
-    if (selectedValues.length <= 11) {
+    if (selectedValues.length <= 10) {
       setTopValues(selectedValues);
       onNext();
     } else {
@@ -74,8 +74,8 @@ function Step2({
         ))}
       </ul>
       <p className="mt-3 text-right">
-        {selectedValues.length > 1
-          ? `選択した数: ${selectedValues.length - 1}`
+        {selectedValues.length > 0
+          ? `選択した数: ${selectedValues.length}`
           : ""}
       </p>
       <div className="flex justify-end gap-3">
